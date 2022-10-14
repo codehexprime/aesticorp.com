@@ -3,11 +3,9 @@ import Header from "./components/Header";
 import {Container} from './components/styles/Container.styled'
 import { ThemeProvider } from "styled-components";
 import GlobalStyles
- from "./components/styles/Global";
- import Emailbox from "./components/email/Emailbox";
-
-
-
+from "./components/styles/Global";
+import Emailbox from "./components/email/Emailbox";
+import Apicall from "./components/firefolder/Apicall";
 
 const theme = {
   colors: {
@@ -29,11 +27,12 @@ function App() {
       <GlobalStyles />
       <Header />
       <Container>
+        <Apicall />
         <h1>join the aesticult, pursue the science of aestiology</h1> 
      </Container>
      <p><Emailbox /></p>
     </ThemeProvider>
   );
 }
- 
+
 export default App;
