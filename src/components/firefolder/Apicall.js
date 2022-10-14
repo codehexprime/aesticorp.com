@@ -15,10 +15,19 @@ function Apicall() {
 
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db, "users");
+  
+  const emailCollectionRef = collection(db, "emails");
 
+  
   const createUser = async () => {
     await addDoc(usersCollectionRef, { name: newName, age: Number(newAge) });
   };
+
+  const createEmail = async () => {
+    const results = await addDoc(emailCollectionRef, { email:newName });
+    console.log('Adding user results', {results})
+  };
+
 
   const updateUser = async (id, age) => {
     const userDoc = doc(db, "users", id);
@@ -56,8 +65,8 @@ function Apicall() {
         }}
       />
 
-      <button onClick={createUser}> Create User</button>
-      {users.map((user) => {
+      <button onClick={createEmail}> Add Email</button>
+      {/* {users.map((user) => {
         return (
           <div>
             {" "}
@@ -81,7 +90,7 @@ function Apicall() {
             </button>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }
